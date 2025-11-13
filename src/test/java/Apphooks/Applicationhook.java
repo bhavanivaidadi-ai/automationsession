@@ -47,7 +47,7 @@ public class Applicationhook {
 
     @After(order = 0)
     public void quitBrowser() throws InterruptedException {
-        //driver.quit();
+        driver.quit();
     }
 
     @After(order = 1)
