@@ -36,7 +36,7 @@ public class UloginPage {
     }
     public void UloginButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
-        driver.findElement(Xpaths.UloginButton);
+        driver.findElement(Xpaths.UloginButton).click();
 //
     }
 

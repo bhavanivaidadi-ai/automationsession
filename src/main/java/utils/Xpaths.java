@@ -13,9 +13,10 @@ public class Xpaths {
     public static By errMsgRequired = By.xpath("//span[text()='Required']");
 
 
-    //Edit feature
+    //profile
 
-    public static By adminClick = By.xpath("//a/span[text()='Admin']");
-    public static By orgClick = By.xpath("//span[text()='Organization ']");
-    public static By genInfoClick = By.xpath("//a[text() = 'General Information']");
+    public static By pimClcik = By.xpath("//a/span[text()='PIM']");
+    public static By addEmpClick = By.xpath("//li/a[text()='Add Employee']");
+
+
 }
