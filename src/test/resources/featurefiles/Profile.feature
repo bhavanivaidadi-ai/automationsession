@@ -1,11 +1,21 @@
 Feature: user able to add details in profile session
 
-  Scenario: user able to login add details in their profile
+  Scenario Outline: : user able to login add details in their profile
 
     Given user is on login page
-    When user enters "Admin" and "admin123"
+    When user enters <username> <password>
     And user clicks on login button
-    Then user is successfully logged in
-    And user click on PIM module
-    And user click on add employee tab
+    And I click on PIM module
+    And I click on add employee tab
+    When I enters <EmpFName> and <EmpLName>
+    When I create unique <EmpId>
+    And I click save button
 
+
+
+
+
+
+    Examples:
+    |username | password | EmpFName | EmpLName  | EmpId |
+    |"Admin"  | "admin123" |"MyTest" | "one"     | "1532" |
