@@ -37,5 +37,10 @@ public class ProfileStep {
     public void click_save_btn(){
         profilePage.saveBtn();
     }
+
+    @And("I click Employee list")
+    public void click_emp_list(){
+        profilePage.EmpListClick();
+    }
 }
 

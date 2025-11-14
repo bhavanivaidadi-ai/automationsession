@@ -10,6 +10,7 @@ Feature: user able to add details in profile session
     When I enters <EmpFName> and <EmpLName>
     When I create unique <EmpId>
     And I click save button
+    And I click Employee list
 
 
 

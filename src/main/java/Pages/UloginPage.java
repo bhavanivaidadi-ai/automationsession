@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Xpaths;
 
 import java.time.Duration;
+import java.util.List;
 
 public class UloginPage {
 
@@ -25,6 +26,11 @@ public class UloginPage {
             flagEmptyUsername = true;
         }
         driver.findElement(Xpaths.UuserName).sendKeys(username);
+
+        if(flagEmptyUsername){
+            System.out.println("Username is empty");
+        }
+
     }
 
     public void Upassword(String passWord){
@@ -33,6 +39,10 @@ public class UloginPage {
             flagEmptyPassword = true;
         }
         driver.findElement(Xpaths.Upassword).sendKeys(passWord);
+
+        if(flagEmptyPassword){
+            System.out.println("Password is empty");
+        }
     }
     public void UloginButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
@@ -45,23 +55,30 @@ public class UloginPage {
     }
 
 
-    public void errorMsgInvalid(){
-        try {
-            WebElement errmsg = driver.findElement((org.openqa.selenium.By) wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid)));
-            System.out.println(errmsg.getText());
-        } catch (Exception e) {
-            System.out.println("Error message not displayed");
-        }
-    }
+    //public void errorMsgInvalid(){
 
-    public void errMsgRequired(){
-        try {
-            WebElement errmsgg = driver.findElement((org.openqa.selenium.By) wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired)));
-            System.out.println(errmsgg.getText());
-        } catch (Exception e) {
-            System.out.println("Error message not displayed here");
-        }
-    }
+//        WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
+//
+//        if (errorElement != null) {
+//            System.out.println(errorElement.getText());
+//        } else {
+//            System.out.println("Error message not displayed");
+//        }
+
+  //  }
+
+    //public void errMsgRequired(){
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
+
+//        WebElement element = driver.findElement(Xpaths.errMsgRequired);
+//
+//        if (element.isDisplayed()) {
+//            System.out.println(element.getText());
+//        } else {
+//            System.out.println("Error message not displayed here");
+//        }
+
+//    }
 
 }
 

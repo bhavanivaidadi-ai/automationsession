@@ -63,4 +63,9 @@ public class ProfilePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn));
         driver.findElement(saveBtn).click();
     }
+
+    public void EmpListClick(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(EmpListClick));
+        driver.findElement(EmpListClick).click();
+    }
 }
