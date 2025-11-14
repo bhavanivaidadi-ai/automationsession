@@ -24,8 +24,7 @@ public class UloginPage {
         if(username.isEmpty()){
             flagEmptyUsername = true;
         }
-        WebElement un = driver.findElement(Xpaths.UuserName);
-        un.sendKeys(username);
+        driver.findElement(Xpaths.UuserName).sendKeys(username);
     }
 
     public void Upassword(String passWord){
@@ -33,13 +32,12 @@ public class UloginPage {
         if(passWord.isEmpty()){
             flagEmptyPassword = true;
         }
-        WebElement pw = driver.findElement(Xpaths.Upassword);
-        pw.sendKeys(passWord);
+        driver.findElement(Xpaths.Upassword).sendKeys(passWord);
     }
     public void UloginButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
-        WebElement loginButton = driver.findElement(Xpaths.UloginButton);
-        loginButton.click();
+        driver.findElement(Xpaths.UloginButton);
+//
     }
 
 
