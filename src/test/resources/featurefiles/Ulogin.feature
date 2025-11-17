@@ -20,8 +20,8 @@ Feature: user should able to login and encounter the invalid logins
 
     Examples:
       | username | password       | message                 |
-      | "Admin"  | "admin@123"    |    "Invalid credentials"   |
+      | "Admin"  | "admin@123"    | "Invalid credentials"   |
       | "admin"  | "admin"        | "Invalid credentials"   |
       | ""       | "admin123"     | "Required"              |
       | "Admin"  | ""             | "Required"              |
-      | ""       | ""             | "Required & Invalid credentials"              |
+      | ""       | ""             | "Required & Invalid credentials" |

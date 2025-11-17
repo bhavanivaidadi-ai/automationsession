@@ -29,9 +29,7 @@ public class UloginPage {
         if(flagEmptyUsername){
             System.out.println("Username is empty");
         }
-
     }
-
     public void Upassword(String passWord){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.Upassword));
         if(passWord.isEmpty()){
@@ -46,13 +44,11 @@ public class UloginPage {
     public void UloginButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
         driver.findElement(Xpaths.UloginButton).click();
-
     }
 
 
     public void navigate_loginPage() {
     }
-
 
     public void errorMsgInvalid(){
 
@@ -76,9 +72,7 @@ public class UloginPage {
         } else {
             System.out.println("Error message not displayed here");
         }
-
     }
-
 }
 
 
