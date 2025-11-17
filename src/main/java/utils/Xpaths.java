@@ -25,5 +25,6 @@ public class Xpaths {
     public static By saveBtn = By.xpath("//button[text()=' Save ']");
     public static By EmpListClick = By.xpath("//li/a[text()='Employee List']");
     public static By Test = By.xpath("//li/a[text()='Employee List']");
+    public static By Test1 = By.xpath("//li/a[text()='Employee List']");
 
 }
