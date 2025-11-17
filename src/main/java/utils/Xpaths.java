@@ -26,5 +26,4 @@ public class Xpaths {
     public static By EmpListClick = By.xpath("//li/a[text()='Employee List']");
     public static By Test = By.xpath("//li/a[text()='Employee List']");
 
-
 }
