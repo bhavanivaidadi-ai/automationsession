@@ -1,13 +1,11 @@
 package Pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Xpaths;
 
 import java.time.Duration;
-import java.util.List;
 
 public class UloginPage {
 
@@ -47,38 +45,12 @@ public class UloginPage {
     public void UloginButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
         driver.findElement(Xpaths.UloginButton).click();
-//
+
     }
 
 
     public void navigate_loginPage() {
     }
-
-
-    //public void errorMsgInvalid(){
-
-//        WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
-//
-//        if (errorElement != null) {
-//            System.out.println(errorElement.getText());
-//        } else {
-//            System.out.println("Error message not displayed");
-//        }
-
-  //  }
-
-    //public void errMsgRequired(){
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
-
-//        WebElement element = driver.findElement(Xpaths.errMsgRequired);
-//
-//        if (element.isDisplayed()) {
-//            System.out.println(element.getText());
-//        } else {
-//            System.out.println("Error message not displayed here");
-//        }
-
-//    }
 
 }
 

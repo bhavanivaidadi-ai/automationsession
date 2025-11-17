@@ -39,18 +39,18 @@ public class UloginStep {
 
     @Then("user get this {string}")
     public void user_get_this_msg(String message){
-//        switch (message) {
-//            case "Invalid credentials":
-//                System.out.println("Login failed: Username or password is incorrect.");
-//                break;
-//            case "Required":
-//                System.out.println("Login failed: Username or password is required.");
-//                break;
-//            case "Required & Invalid credentials":
-//                System.out.println("Login failed: Username and password is required.");
-//            default:
-//                System.out.println("Login status failed.");
-//        }
+        switch (message) {
+            case "Invalid credentials":
+                System.out.println("Login failed: Username or password is incorrect.");
+                break;
+            case "Required":
+                System.out.println("Login failed: Username or password is required.");
+                break;
+            case "Required & Invalid credentials":
+                System.out.println("Login failed: Username and password is required.");
+            default:
+                System.out.println("Login status failed.");
+        }
 
     }
 
