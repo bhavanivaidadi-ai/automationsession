@@ -23,7 +23,7 @@ public class Xpaths {
     public static By empLName = By.xpath("//input[@placeholder='Last Name']");
     public static By empId = By.xpath("//label[text()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
     public static By saveBtn = By.xpath("//button[text()=' Save ']");
-    public static By EmpListClick = By.xpath("//li/a[text()='Employee List']");
+    //public static By EmpListClick = By.xpath("//li/a[text()='Employee List']");
 
 
 }
