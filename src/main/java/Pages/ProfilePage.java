@@ -38,6 +38,10 @@ public class ProfilePage {
             flagEmptyEmpFName = true;
         }
         driver.findElement(empFName).sendKeys(EmpFName);
+
+        if(flagEmptyEmpFName){
+            System.out.println("First name is empty");
+        }
     }
 
     public void empLName(String EmpLName){
@@ -46,6 +50,10 @@ public class ProfilePage {
             flagEmptEmpLName = true;
         }
         driver.findElement(empLName).sendKeys(EmpLName);
+
+        if(flagEmptEmpLName){
+            System.out.println("Last Name is empty");
+        }
 
     }
 
@@ -57,6 +65,10 @@ public class ProfilePage {
         WebElement empID = driver.findElement(empId);
         empID.clear();
         empID.sendKeys(EmpId);
+
+        if(flagEmptyEmpId){
+            System.out.println("Emp ID is empty");
+        }
     }
 
     public void saveBtn(){
