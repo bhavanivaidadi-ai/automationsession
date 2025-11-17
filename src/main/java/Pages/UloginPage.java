@@ -14,34 +14,37 @@ public class UloginPage {
     WebDriverWait wait;
     private boolean flagEmptyUsername = false;
     private boolean flagEmptyPassword = false;
-    public UloginPage(WebDriver driver){
+
+    public UloginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void UuserName(String username){
+    public void UuserName(String username) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UuserName));
-        if(username.isEmpty()){
+        if (username.isEmpty()) {
             flagEmptyUsername = true;
         }
         driver.findElement(Xpaths.UuserName).sendKeys(username);
 
-        if(flagEmptyUsername){
+        if (flagEmptyUsername) {
             System.out.println("Username is empty");
         }
     }
-    public void Upassword(String passWord){
+
+    public void Upassword(String passWord) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.Upassword));
-        if(passWord.isEmpty()){
+        if (passWord.isEmpty()) {
             flagEmptyPassword = true;
         }
         driver.findElement(Xpaths.Upassword).sendKeys(passWord);
 
-        if(flagEmptyPassword){
+        if (flagEmptyPassword) {
             System.out.println("Password is empty");
         }
     }
-    public void UloginButton(){
+
+    public void UloginButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.UloginButton));
         driver.findElement(Xpaths.UloginButton).click();
     }
@@ -50,7 +53,7 @@ public class UloginPage {
     public void navigate_loginPage() {
     }
 
-    public void errorMsgInvalid(){
+    public void errorMsgInvalid() {
 
         WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
 
@@ -62,7 +65,7 @@ public class UloginPage {
 
     }
 
-    public void errMsgRequired(){
+    public void errMsgRequired() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
 
         WebElement element = driver.findElement(Xpaths.errMsgRequired);
@@ -72,6 +75,21 @@ public class UloginPage {
         } else {
             System.out.println("Error message not displayed here");
         }
+    }
+    public void user_get_this_msg(String message) {
+        switch (message) {
+            case "Invalid credentials":
+                System.out.println("Login failed: Username or password is incorrect.");
+                break;
+            case "Required":
+                System.out.println("Login failed: Username or password is required.");
+                break;
+            case "Required & Invalid credentials":
+                System.out.println("Login failed: Username and password is required.");
+            default:
+                System.out.println("Login status failed.");
+        }
+
     }
 }
 
