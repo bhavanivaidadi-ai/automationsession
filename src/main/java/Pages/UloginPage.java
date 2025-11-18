@@ -64,7 +64,6 @@ public class UloginPage {
         }
 
     }
-
     public void errMsgRequired() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
 
