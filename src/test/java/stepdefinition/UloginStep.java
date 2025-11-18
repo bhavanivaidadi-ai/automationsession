@@ -6,7 +6,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 public class UloginStep {
     UloginPage uloginPage = new UloginPage(WebDriverInitializer.getDriver());
 
@@ -42,4 +41,5 @@ public class UloginStep {
 
         uloginPage.user_get_this_msg(message);
     }
+
 }
