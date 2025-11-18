@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Xpaths;
 
 import java.time.Duration;
+import java.util.List;
 
 public class UloginPage {
 
@@ -75,21 +76,42 @@ public class UloginPage {
             System.out.println("Error message not displayed here");
         }
     }
-    public void user_get_this_msg(String message) {
-        switch (message) {
-            case "Invalid credentials":
-                System.out.println("Login failed: Username or password is incorrect.");
-                break;
-            case "Required":
-                System.out.println("Login failed: Username or password is required.");
-                break;
-            case "Required & Invalid credentials":
-                System.out.println("Login failed: Username and password is required.");
-            default:
-                System.out.println("Login status failed.");
-        }
+//    public void user_get_this_msg(String message) {
+//        switch (message) {
+//            case "Invalid credentials":
+//                System.out.println("Login failed: Username or password is incorrect.");
+//                break;
+//            case "Required":
+//                System.out.println("Login failed: Username or password is required.");
+//                break;
+//            case "Required & Invalid credentials":
+//                System.out.println("Login failed: Username and password is required.");
+//            default:
+//                System.out.println("Login status failed.");
+//        }
+//
+//    }
 
+public String getActualErrorMessage() {
+    StringBuilder actualMessage = new StringBuilder();
+
+    List<WebElement> requiredMsgs = driver.findElements(Xpaths.errMsgRequired);
+    if (!requiredMsgs.isEmpty()) {
+        actualMessage.append(requiredMsgs.get(0).getText());
     }
+
+    List<WebElement> invalidMsgs = driver.findElements(Xpaths.errorMsgInvalid);
+    if (!invalidMsgs.isEmpty()) {
+        if (actualMessage.length() > 0) {
+            actualMessage.append(" & ");
+        }
+        actualMessage.append(invalidMsgs.get(0).getText());
+    }
+
+    return actualMessage.toString().trim();
+}
+
+
 }
 
 
