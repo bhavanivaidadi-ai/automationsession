@@ -36,23 +36,10 @@ public class UloginStep {
         uloginPage.Upassword(password);
     }
 
-//    @Then("user get this {string}")
-//    public void user_get_this_msg(String message){
-//
-//        uloginPage.user_get_this_msg(message);
-//    }
-
     @Then("user get this {string}")
-    public void usr_get_msg(String expectedMessage) {
+    public void user_get_this_msg(String message){
 
-        String actual = uloginPage.getActualErrorMessage();
-
-        if (actual.equals(expectedMessage)) {
-            System.out.println("PASS: Expected = " + expectedMessage + " | Actual = " + actual);
-        } else{
-            System.out.println("FAIL: Expected = " + expectedMessage + " | Actual = " + actual);
-        }
+        uloginPage.user_get_this_msg(message);
     }
-
 
 }
