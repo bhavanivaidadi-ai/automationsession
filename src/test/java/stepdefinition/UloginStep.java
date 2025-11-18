@@ -39,6 +39,7 @@ public class UloginStep {
 
     @Then("user get this {string}")
     public void user_get_this_msg(String message){
+
         uloginPage.user_get_this_msg(message);
     }
 }
