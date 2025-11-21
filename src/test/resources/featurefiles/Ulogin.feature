@@ -13,15 +13,17 @@ Feature: user should able to login and encounter the invalid logins
     Given user is on login page
     When user enters <username> <password>
     And user clicks on login button
-    Then user get this <message>
+    Then login result should be shown
 
 
 
 
     Examples:
-      | username | password       | message                          |
-      | "Admin"  | "admin123"    | "Invalid credentials"            |
-      | "admin"  | "admin"        | "Invalid credentials"            |
-      | ""       | "admin123"     | "Required"                       |
-      | "Admin"  | ""             | "Required"                       |
-      | ""       | ""             | "Required" |
+      | username | password       |
+      | "Admin"  | "admin123"     |
+      | "Admin"  | "adn123"       |
+      | ""  | "admin123"      |
+      | "Admin"       | "admin123"     |
+      |"Ain"   | ""             |
+      | ""       | ""             |
+      | "Admin"  | "admin123"     |

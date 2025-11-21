@@ -1,5 +1,7 @@
 package Pages;
 
+import driver.WebDriverInitializer;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Xpaths;
 
 import java.time.Duration;
+import java.util.List;
 
 public class UloginPage {
 
@@ -53,43 +56,108 @@ public class UloginPage {
     public void navigate_loginPage() {
     }
 
-    public void errorMsgInvalid() {
+    public void verifyDashboardVisible() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.validation));
+    }
 
-        WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
+//    public void errorMsgInvalid() {
+//
+//        WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
+//
+//        if (errorElement != null) {
+//            System.out.println(errorElement.getText());
+//        } else {
+//            System.out.println("Error message not displayed");
+//        }
+//
+//    }
+//
+//    public void errMsgRequired() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
+//
+//        WebElement element = driver.findElement(Xpaths.errMsgRequired);
+//
+//        if (element.isDisplayed()) {
+//            System.out.println(element.getText());
+//        } else {
+//            System.out.println("Error message not displayed here");
+//        }
+//    }
 
-        if (errorElement != null) {
-            System.out.println(errorElement.getText());
+    public void user_logged_successfully(){
+//        String dashboardText = WebDriverInitializer.getDriver()
+//                .findElement(Xpaths.validation)
+//                .getText();
+//
+//        Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
+        String dashboardText = WebDriverInitializer.getDriver()
+                .findElement(Xpaths.validation)
+                .getText();
+
+        if ("Dashboard".equals(dashboardText)) {
+            System.out.println("Dashboard is displayed correctly");
         } else {
-            System.out.println("Error message not displayed");
+            System.out.println("Unexpected Dashboard text: " + dashboardText);
         }
 
     }
-    public void errMsgRequired() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
 
-        WebElement element = driver.findElement(Xpaths.errMsgRequired);
 
-        if (element.isDisplayed()) {
-            System.out.println(element.getText());
-        } else {
-            System.out.println("Error message not displayed here");
+//    public void detectLoginStatus() {
+//
+//
+//        if (isPresent(Xpaths.validation)){
+////            TODO::Assert success message
+//        }
+//        if (isPresent(Xpaths.errorMsgInvalid)) {
+////            TODO::Assert error message message
+//        }
+//        if (driver.findElements(Xpaths.errMsgRequired).size() > 0) {
+
+    /// /            TODO::Assert required message
+//        }
+//
+//    }
+//
+    public void detectLoginStatus() {
+
+        List<WebElement> dashboardElements = driver.findElements(Xpaths.validation);
+        if (!dashboardElements.isEmpty()) {
+            String text = dashboardElements.get(0).getText();
+            if ("Dashboard".equals(text)) {
+                System.out.println("Login Successful");
+            } else {
+                System.out.println("Unexpected Dashboard text: " + text);
+            }
+            return;
         }
-    }
-    public void user_get_this_msg(String message) {
-        switch (message) {
-            case "Invalid credentials":
-                System.out.println("Login failed: Username or password is incorrect.");
-                break;
-            case "Required":
-                System.out.println("Login failed: Username or password is required.");
-                break;
-            case "Required & Invalid credentials":
-                System.out.println("Login failed: Username and password is required.");
-            default:
-                System.out.println("Login status failed.");
+
+        List<WebElement> invalidElements = driver.findElements(Xpaths.errorMsgInvalid);
+        if (!invalidElements.isEmpty()) {
+            String errorText = invalidElements.get(0).getText();
+            if ("Invalid credentials".equals(errorText)) {
+                System.out.println("Invalid Credentials");
+            } else {
+                System.out.println("Unexpected error text: " + errorText);
+            }
+            return;
         }
 
+        List<WebElement> requiredElements = driver.findElements(Xpaths.errMsgRequired);
+        if (!requiredElements.isEmpty()) {
+            String requiredText = requiredElements.get(0).getText();
+            if ("Required".equals(requiredText)) {
+                System.out.println("Required Field Missing");
+            } else {
+                System.out.println("Unexpected required field text: " + requiredText);
+            }
+            return;
+        }
+
+        System.out.println("No login result UI element was found!");
     }
+
+
 
 
 }

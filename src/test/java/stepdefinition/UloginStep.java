@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 public class UloginStep {
     UloginPage uloginPage = new UloginPage(WebDriverInitializer.getDriver());
 
@@ -25,21 +26,25 @@ public class UloginStep {
         uloginPage.UloginButton();
     }
 
-    @Then("user is successfully logged in")
-    public void user_logged_successfully() {
-
-    }
-
     @When("user enters {string} {string}")
     public void user_enter_name_pass(String username, String password ){
         uloginPage.UuserName(username);
         uloginPage.Upassword(password);
     }
 
-    @Then("user get this {string}")
-    public void user_get_this_msg(String message){
 
-        uloginPage.user_get_this_msg(message);
+    @Then("user is successfully logged in")
+    public void user_logged_successfully() {
+
+        uloginPage.verifyDashboardVisible();
+        uloginPage.user_logged_successfully();
     }
+
+    @Then("login result should be shown")
+    public void login_result_should_be_shown() {
+        uloginPage.detectLoginStatus();
+    }
+
+
 
 }

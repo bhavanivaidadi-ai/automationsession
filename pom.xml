@@ -18,6 +18,8 @@
 
     <dependencies>
 
+
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -73,6 +75,7 @@
         </dependency>
 
         <!-- Extent Report Adapter for Cucumber 7+ -->
+
 
     </dependencies>
 
