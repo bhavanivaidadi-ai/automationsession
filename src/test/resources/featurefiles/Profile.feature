@@ -20,7 +20,6 @@ Feature: user able to add details in profile session
 
 
 
-
     Examples:
     |username | password | EmpFName | EmpLName  | EmpId |
-    |"Admin"  | "admin123" |"n" | "n"     | "0458" |
+    |"Admin"  | "admin123" |"n" | "n"     | "0009" |

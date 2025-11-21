@@ -59,13 +59,13 @@ public class UloginPage {
     }
 
 
-    public void user_logged_successfully() {
-        String dashboardText = driver.findElement(Xpaths.validation).getText();
+    public void user_logged_successfully(){
+        String dashboardText = WebDriverInitializer.getDriver()
+                .findElement(Xpaths.validation)
+                .getText();
 
         Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
-//        String dashboardText = WebDriverInitializer.getDriver()
-//                .findElement(Xpaths.validation)
-//                .getText();
+//        String dashboardText = driver.findElement(Xpaths.validation).getText();
 //
 //        if ("Dashboard".equals(dashboardText)) {
 //            System.out.println("Dashboard is displayed correctly");
@@ -75,44 +75,47 @@ public class UloginPage {
 
     }
 
-    public void detectLoginStatus(){
-            List<WebElement> dashboardElements = driver.findElements(Xpaths.validation);
-            if (!dashboardElements.isEmpty()) {
-                String text = dashboardElements.getFirst().getText();
-                if ("Dashboard".equals(text)) {
-                    System.out.println("Login Successful");
-                } else {
-                    System.out.println("Unexpected Dashboard text: " + text);
-                }
-                return;
-            }
 
-            List<WebElement> invalidElements = driver.findElements(Xpaths.errorMsgInvalid);
-            if (!invalidElements.isEmpty()) {
-                String errorText = invalidElements.getFirst().getText();
-                if ("Invalid credentials".equals(errorText)) {
-                    System.out.println("Invalid Credentials");
-                } else {
-                    System.out.println("Unexpected error text: " + errorText);
-                }
-                return;
-            }
+    public void detectLoginStatus() {
 
-            List<WebElement> requiredElements = driver.findElements(Xpaths.errMsgRequired);
-            if (!requiredElements.isEmpty()) {
-                String requiredText = requiredElements.getFirst().getText();
-                if ("Required".equals(requiredText)) {
-                    System.out.println("Required Field Missing");
-                } else {
-                    System.out.println("Unexpected required field text: " + requiredText);
-                }
-                return;
+        List<WebElement> dashboardElements = driver.findElements(Xpaths.validation);
+        if (!dashboardElements.isEmpty()) {
+            String text = dashboardElements.getFirst().getText();
+            if ("Dashboard".equals(text)) {
+                System.out.println("Login Successful");
+            } else {
+                System.out.println("Unexpected Dashboard text: " + text);
             }
-
-            System.out.println("No login result UI element was found!");
+            return;
         }
 
+        List<WebElement> invalidElements = driver.findElements(Xpaths.errorMsgInvalid);
+        if (!invalidElements.isEmpty()) {
+            String errorText = invalidElements.getFirst().getText();
+            if ("Invalid credentials".equals(errorText)) {
+                System.out.println("Invalid Credentials");
+            } else {
+                System.out.println("Unexpected error text: " + errorText);
+            }
+            return;
+        }
 
+        List<WebElement> requiredElements = driver.findElements(Xpaths.errMsgRequired);
+        if (!requiredElements.isEmpty()) {
+            String requiredText = requiredElements.getFirst().getText();
+            if ("Required".equals(requiredText)) {
+                System.out.println("Required Field Missing");
+            } else {
+                System.out.println("Unexpected required field text: " + requiredText);
+            }
+            return;
+        }
+
+        System.out.println("No login result UI element was found!");
     }
+
+
+
+}
 
 

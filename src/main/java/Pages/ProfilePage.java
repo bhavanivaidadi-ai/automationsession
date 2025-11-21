@@ -94,7 +94,9 @@ public class ProfilePage {
 
     public void editClick(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(editClick));
-        driver.findElement(editClick).click();
+        WebElement freshEditBtn = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(editClick)));
+        freshEditBtn.click();
+        //driver.findElement(editClick).click();
 
     }
 
