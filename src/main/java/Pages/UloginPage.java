@@ -1,7 +1,6 @@
 package Pages;
 
 import driver.WebDriverInitializer;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,29 +59,6 @@ public class UloginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.validation));
     }
 
-//    public void errorMsgInvalid() {
-//
-//        WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errorMsgInvalid));
-//
-//        if (errorElement != null) {
-//            System.out.println(errorElement.getText());
-//        } else {
-//            System.out.println("Error message not displayed");
-//        }
-//
-//    }
-//
-//    public void errMsgRequired() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(Xpaths.errMsgRequired));
-//
-//        WebElement element = driver.findElement(Xpaths.errMsgRequired);
-//
-//        if (element.isDisplayed()) {
-//            System.out.println(element.getText());
-//        } else {
-//            System.out.println("Error message not displayed here");
-//        }
-//    }
 
     public void user_logged_successfully(){
 //        String dashboardText = WebDriverInitializer.getDriver()
@@ -103,27 +79,11 @@ public class UloginPage {
     }
 
 
-//    public void detectLoginStatus() {
-//
-//
-//        if (isPresent(Xpaths.validation)){
-////            TODO::Assert success message
-//        }
-//        if (isPresent(Xpaths.errorMsgInvalid)) {
-////            TODO::Assert error message message
-//        }
-//        if (driver.findElements(Xpaths.errMsgRequired).size() > 0) {
-
-    /// /            TODO::Assert required message
-//        }
-//
-//    }
-//
     public void detectLoginStatus() {
 
         List<WebElement> dashboardElements = driver.findElements(Xpaths.validation);
         if (!dashboardElements.isEmpty()) {
-            String text = dashboardElements.get(0).getText();
+            String text = dashboardElements.getFirst().getText();
             if ("Dashboard".equals(text)) {
                 System.out.println("Login Successful");
             } else {
@@ -134,7 +94,7 @@ public class UloginPage {
 
         List<WebElement> invalidElements = driver.findElements(Xpaths.errorMsgInvalid);
         if (!invalidElements.isEmpty()) {
-            String errorText = invalidElements.get(0).getText();
+            String errorText = invalidElements.getFirst().getText();
             if ("Invalid credentials".equals(errorText)) {
                 System.out.println("Invalid Credentials");
             } else {
@@ -145,7 +105,7 @@ public class UloginPage {
 
         List<WebElement> requiredElements = driver.findElements(Xpaths.errMsgRequired);
         if (!requiredElements.isEmpty()) {
-            String requiredText = requiredElements.get(0).getText();
+            String requiredText = requiredElements.getFirst().getText();
             if ("Required".equals(requiredText)) {
                 System.out.println("Required Field Missing");
             } else {
@@ -156,7 +116,6 @@ public class UloginPage {
 
         System.out.println("No login result UI element was found!");
     }
-
 
 
 
