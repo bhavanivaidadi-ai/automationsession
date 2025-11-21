@@ -1,4 +1,6 @@
 package Pages;
+
+import driver.WebDriverInitializer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -63,9 +65,7 @@ public class UloginPage {
 //                .getText();
 //
 //        Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
-        String dashboardText = WebDriverInitializer.getDriver()
-                .findElement(Xpaths.validation)
-                .getText();
+        String dashboardText = driver.findElement(Xpaths.validation).getText();
 
         if ("Dashboard".equals(dashboardText)) {
             System.out.println("Dashboard is displayed correctly");
