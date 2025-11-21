@@ -63,7 +63,9 @@ public class UloginPage {
 //                .getText();
 //
 //        Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
-        String dashboardText = driver.findElement(Xpaths.validation).getText();
+        String dashboardText = WebDriverInitializer.getDriver()
+                .findElement(Xpaths.validation)
+                .getText();
 
         if ("Dashboard".equals(dashboardText)) {
             System.out.println("Dashboard is displayed correctly");
