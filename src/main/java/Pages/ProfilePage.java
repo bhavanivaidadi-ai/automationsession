@@ -1,5 +1,6 @@
 package Pages;
 
+import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -80,6 +81,24 @@ public class ProfilePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(EmpListClick));
         driver.findElement(EmpListClick).click();
     }
+
+    public void employeeId(String EmpId){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(employeeId));
+        driver.findElement(employeeId).sendKeys(EmpId);
+    }
+
+    public void searchClick(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchClick));
+        driver.findElement(searchClick).click();
+    }
+
+    public void editClick(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(editClick));
+        driver.findElement(editClick).click();
+
+    }
+
+
 
 
 }

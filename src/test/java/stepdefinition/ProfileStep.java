@@ -42,5 +42,20 @@ public class ProfileStep {
     public void click_emp_list(){
         profilePage.EmpListClick();
     }
+
+    @When("I Enter the {string} to search for particular emp")
+    public void enter_emp_id(String EmpId){
+        profilePage.employeeId(EmpId);
+    }
+
+    @And("i click search button")
+    public void click_search_btn(){
+        profilePage.searchClick();
+    }
+
+    @And("i click edit button")
+    public void click_edit_btn(){
+        profilePage.editClick();
+    }
 }
 

@@ -11,6 +11,10 @@ Feature: user able to add details in profile session
     When I create unique <EmpId>
     And I click save button
     And I click Employee list
+    When I Enter the <EmpId> to search for particular emp
+    And i click search button
+    And i click edit button
+
 
 
 
@@ -19,4 +23,4 @@ Feature: user able to add details in profile session
 
     Examples:
     |username | password | EmpFName | EmpLName  | EmpId |
-    |"Admin"  | "admin123" |"MyTest" | "one"     | "1532" |
+    |"Admin"  | "admin123" |"n" | "n"     | "0458" |
