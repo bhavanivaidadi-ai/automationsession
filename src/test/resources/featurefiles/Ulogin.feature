@@ -22,8 +22,8 @@ Feature: user should able to login and encounter the invalid logins
       | username | password       |
       | "Admin"  | "admin123"     |
       | "Admin"  | "adn123"       |
-      | ""  | "admin123"      |
-      | "Admin"       | "admin123"     |
-      |"Ain"   | ""             |
+      | ""       | "admin123"     |
+      | "Admin"  | "admin123"     |
+      |"Ain"     | ""             |
       | ""       | ""             |
       | "Admin"  | "admin123"     |
