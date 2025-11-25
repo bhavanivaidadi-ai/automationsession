@@ -14,6 +14,9 @@ Feature: user able to add details in profile session
     When I Enter the <EmpId> to search for particular emp
     And i click search button
     And i click edit button
+    And i select nationality
+    #And i select value on nationality
+
 
 
 
@@ -22,4 +25,4 @@ Feature: user able to add details in profile session
 
     Examples:
     |username | password | EmpFName | EmpLName  | EmpId |
-    |"Admin"  | "admin123" |"n" | "n"     | "0009" |
+    |"Admin"  | "admin123" |"Bob" | "Automation"     | "0429" |

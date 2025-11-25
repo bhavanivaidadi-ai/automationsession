@@ -85,6 +85,7 @@ public class ProfilePage {
     public void employeeId(String EmpId){
         wait.until(ExpectedConditions.visibilityOfElementLocated(employeeId));
         driver.findElement(employeeId).sendKeys(EmpId);
+
     }
 
     public void searchClick(){
@@ -96,8 +97,17 @@ public class ProfilePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(editClick));
         WebElement freshEditBtn = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(editClick)));
         freshEditBtn.click();
-        //driver.findElement(editClick).click();
 
+    }
+
+    public void dropDown(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dropDown));
+        driver.findElement(dropDown);
+    }
+
+    public void selctValue(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selctValue));
+        driver.findElement(selctValue);
     }
 
 

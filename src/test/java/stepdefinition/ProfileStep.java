@@ -57,5 +57,15 @@ public class ProfileStep {
     public void click_edit_btn(){
         profilePage.editClick();
     }
+
+    @And("i select nationality")
+    public void select_nationality(){
+        profilePage.dropDown();
+    }
+
+    @And("i select value on nationality")
+    public void select_value(){
+        profilePage.selctValue();
+    }
 }
 
