@@ -1,12 +1,13 @@
 package Pages;
 
-import dev.failsafe.internal.util.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import driver.WebDriverInitializer;
+import org.junit.Assert;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Xpaths;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import static utils.Xpaths.*;
@@ -58,23 +59,48 @@ public class ProfilePage {
 
     }
 
+//    public void empId(String EmpId){
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(empId));
+//        if (EmpId.isEmpty()){
+//            flagEmptyEmpId = true;
+//        }
+//        WebElement empID = driver.findElement(empId);
+//        empID.clear();
+//        empID.sendKeys(EmpId);
+//
+//        if(flagEmptyEmpId){
+//            System.out.println("Emp ID is empty");
+//        }
+//    }
+
     public void empId(String EmpId){
         wait.until(ExpectedConditions.visibilityOfElementLocated(empId));
-        if (EmpId.isEmpty()){
-            flagEmptyEmpId = true;
-        }
         WebElement empID = driver.findElement(empId);
-        empID.clear();
-        empID.sendKeys(EmpId);
 
-        if(flagEmptyEmpId){
+        empID.click();
+        empID.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
+
+        if (!EmpId.isEmpty()) {
+            empID.sendKeys(EmpId);
+        } else {
+            flagEmptyEmpId = true;
             System.out.println("Emp ID is empty");
         }
     }
 
+
     public void saveBtn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn));
         driver.findElement(saveBtn).click();
+    }
+
+    public void toastMsg(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(toastMsg));
+        String dashboardText = WebDriverInitializer.getDriver()
+                .findElement(toastMsg)
+                .getText();
+
+        Assert.assertEquals(dashboardText, "Success", "Success");
     }
 
     public void EmpListClick(){
@@ -99,16 +125,18 @@ public class ProfilePage {
         freshEditBtn.click();
 
     }
+    public void selectNationality() throws AWTException {
+        wait.until(ExpectedConditions.elementToBeClickable(dropDown)).click();
+        Robot r = new Robot();
+        r.keyPress(KeyEvent.VK_DOWN);
+        r.keyRelease(KeyEvent.VK_DOWN);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
 
-    public void dropDown(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(dropDown));
-        driver.findElement(dropDown);
     }
 
-    public void selctValue(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(selctValue));
-        driver.findElement(selctValue);
-    }
+
+
 
 
 
