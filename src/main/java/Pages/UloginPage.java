@@ -1,6 +1,6 @@
 package Pages;
-
 import driver.WebDriverInitializer;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,18 +60,18 @@ public class UloginPage {
 
 
     public void user_logged_successfully(){
-//        String dashboardText = WebDriverInitializer.getDriver()
-//                .findElement(Xpaths.validation)
-//                .getText();
-//
-//        Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
-        String dashboardText = driver.findElement(Xpaths.validation).getText();
+        String dashboardText = WebDriverInitializer.getDriver()
+                .findElement(Xpaths.validation)
+                .getText();
 
-        if ("Dashboard".equals(dashboardText)) {
-            System.out.println("Dashboard is displayed correctly");
-        } else {
-            System.out.println("Unexpected Dashboard text: " + dashboardText);
-        }
+        Assert.assertEquals(dashboardText, "Dashboard", "Dashboard");
+//        String dashboardText = driver.findElement(Xpaths.validation).getText();
+//
+//        if ("Dashboard".equals(dashboardText)) {
+//            System.out.println("Dashboard is displayed correctly");
+//        } else {
+//            System.out.println("Unexpected Dashboard text: " + dashboardText);
+//        }
 
     }
 

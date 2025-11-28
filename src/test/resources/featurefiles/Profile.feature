@@ -10,10 +10,12 @@ Feature: user able to add details in profile session
     When I enters <EmpFName> and <EmpLName>
     When I create unique <EmpId>
     And I click save button
+    Then i see a toaster msg
     And I click Employee list
     When I Enter the <EmpId> to search for particular emp
     And i click search button
     And i click edit button
+    And i select nationality
 
 
 
@@ -23,4 +25,4 @@ Feature: user able to add details in profile session
 
     Examples:
     |username | password | EmpFName | EmpLName  | EmpId |
-    |"Admin"  | "admin123" |"n" | "n"     | "0458" |
+    |"Admin"  | "admin123" |"tester1" | "test"     | "3390" |

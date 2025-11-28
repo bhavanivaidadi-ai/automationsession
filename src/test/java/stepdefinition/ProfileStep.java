@@ -3,7 +3,10 @@ package stepdefinition;
 import Pages.ProfilePage;
 import driver.WebDriverInitializer;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.awt.*;
 
 
 public class ProfileStep {
@@ -38,6 +41,10 @@ public class ProfileStep {
         profilePage.saveBtn();
     }
 
+    @Then("i see a toaster msg")
+    public void toaster_msg(){
+        profilePage.toastMsg();
+    }
     @And("I click Employee list")
     public void click_emp_list(){
         profilePage.EmpListClick();
@@ -57,5 +64,12 @@ public class ProfileStep {
     public void click_edit_btn(){
         profilePage.editClick();
     }
+
+    @And("i select nationality")
+    public void select_nationality() throws AWTException {
+        profilePage.selectNationality();
+    }
+
+
 }
 
