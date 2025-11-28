@@ -28,8 +28,23 @@ public class Xpaths {
     public static By employeeId = By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div//input");
     public static By searchClick = By.xpath("//button[text()=' Search ']");
     public static By editClick = By.xpath("//button/i[@class = 'oxd-icon bi-pencil-fill']");
-    public static By dropDown = By.xpath("//label[text()='Nationality']/following::div[contains(@class,'oxd-select-text')]");
-    public static By selctValue = By.xpath("//div[text()='Kuwaiti']");
+    public static By dropDown = By.xpath("//div[@class = 'oxd-input-group__label-wrapper']/label[text()='Nationality']");
+    public static By selctValue = By.xpath("//div[@class = 'oxd-select-text oxd-select-text--active']/div[text()='Sri Lankan']");
+
+
+
+    //Admin status
+
+    public static By AdminClick = By.xpath("//span[text()='Admin']");
+    public static By ursMngmt = By.xpath("//li[@class = 'oxd-topbar-body-nav-tab --parent --visited']/span[text()='User Management ']");
+    public static By users = By.xpath("//a[text()='Users']");
+    public static By SystmemusrValidation = By.xpath("//h5[text()='System Users']");
+    public static By trash = By.xpath("(//div[contains(@class,'oxd-table-cell-actions')])[1]//i[contains(@class,'bi-trash')]");
+
+
+
+
+
 
 
 }

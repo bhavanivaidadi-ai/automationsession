@@ -16,6 +16,7 @@ Feature: user able to add details in profile session
     And i click search button
     And i click edit button
     And i select nationality
+    And i click on my nationality type
 
 
 
@@ -25,4 +26,4 @@ Feature: user able to add details in profile session
 
     Examples:
     |username | password | EmpFName | EmpLName  | EmpId |
-    |"Admin"  | "admin123" |"tester1" | "test"     | "3390" |
+    |"Admin"  | "admin123" |"tester1" | "test"     | "1949" |

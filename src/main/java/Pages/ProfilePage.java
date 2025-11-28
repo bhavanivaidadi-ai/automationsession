@@ -4,10 +4,9 @@ import driver.WebDriverInitializer;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import static utils.Xpaths.*;
@@ -21,6 +20,7 @@ public class ProfilePage {
     public ProfilePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     }
 
     public void pimClcik(){
@@ -58,20 +58,6 @@ public class ProfilePage {
         }
 
     }
-
-//    public void empId(String EmpId){
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(empId));
-//        if (EmpId.isEmpty()){
-//            flagEmptyEmpId = true;
-//        }
-//        WebElement empID = driver.findElement(empId);
-//        empID.clear();
-//        empID.sendKeys(EmpId);
-//
-//        if(flagEmptyEmpId){
-//            System.out.println("Emp ID is empty");
-//        }
-//    }
 
     public void empId(String EmpId){
         wait.until(ExpectedConditions.visibilityOfElementLocated(empId));
@@ -125,20 +111,29 @@ public class ProfilePage {
         freshEditBtn.click();
 
     }
-    public void selectNationality() throws AWTException {
-        wait.until(ExpectedConditions.elementToBeClickable(dropDown)).click();
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_DOWN);
-        r.keyRelease(KeyEvent.VK_DOWN);
-        r.keyPress(KeyEvent.VK_ENTER);
-        r.keyRelease(KeyEvent.VK_ENTER);
+//    public void selectNationality() throws AWTException {
+//        wait.until(ExpectedConditions.elementToBeClickable(dropDown)).click();
+//        Robot r = new Robot();
+//        r.keyPress(KeyEvent.VK_DOWN);
+//        r.keyRelease(KeyEvent.VK_DOWN);
+//        r.keyPress(KeyEvent.VK_ENTER);
+//        r.keyRelease(KeyEvent.VK_ENTER);
+//
+//    }
 
+   public void dropDown(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dropDown));
+        WebElement nationDropdown = driver.findElement(dropDown);
+        nationDropdown.click();
+    }
+
+    public void selctValue(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selctValue));
+        WebElement nationValue = driver.findElement(selctValue);
+        Select value = new Select(nationValue);
+        value.selectByVisibleText("Sri Lankan");
     }
 
 
-
-
-
-
-
 }
+

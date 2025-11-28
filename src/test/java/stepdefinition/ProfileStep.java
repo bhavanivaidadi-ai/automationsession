@@ -66,8 +66,14 @@ public class ProfileStep {
     }
 
     @And("i select nationality")
-    public void select_nationality() throws AWTException {
-        profilePage.selectNationality();
+    public void select_nationality() {
+        profilePage.dropDown();
+        profilePage.selctValue();
+
+    }
+    @And("i click on my nationality type")
+    public void click_nationality(){
+        profilePage.selctValue();
     }
 
 
