@@ -19,7 +19,10 @@ public class WebDriverInitializer {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
             options.addArguments("window-size=1400,800");
-//			options.addArguments("headless");
+			//options.addArguments("headless");
+
+//            options.addArguments("user-data-dir=C:/AutomationProfile/ChromeProfile");
+//            options.addArguments("--disable-blink-features=AutomationControlled");
 
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver(options));

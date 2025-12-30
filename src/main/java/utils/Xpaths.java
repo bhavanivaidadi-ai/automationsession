@@ -41,10 +41,15 @@ public class Xpaths {
     public static By SystmemusrValidation = By.xpath("//h5[text()='System Users']");
     public static By trash = By.xpath("(//div[contains(@class,'oxd-table-cell-actions')])[1]//i[contains(@class,'bi-trash')]");
 
-
-
-
-
-
-
+    //Apaims login
+    public static By usrName = By.xpath("//input[@id = 'username']");
+    public static By passwrd = By.xpath("//input[@id = 'password']");
+    public static By logs = By.xpath("//button[@type ='submit']/span[text()='Login']");
+    public static By validationofsuccess = By.xpath("//div[text()='Success']");
+    //public static By cancelClick = By.xpath("//timesicon[@class ='p-component p-iconwrapper ng-tns-c2196985156-8 ng-star-inserted']");
+    public static By exploreClick = By.xpath("//div[text()=' Anigeru ']");
+    public static By number = By.xpath("//div[text()=' 9090683063 ']");
+    public static By botClick = By.xpath("//a[.//span[normalize-space()='Knowledge Assistant']]");
+    public static By retrieveData = By.xpath("//input[@placeholder ='Type a messege']");
+    public static By clickonBot = By.xpath("//button[@class ='p-ripple p-button p-component p-button-sm bg-yellow-400 border-1 border-yellow-500 text-700']");
 }
